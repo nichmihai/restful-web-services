@@ -8,8 +8,10 @@ public class User {
     private String name;
     private LocalDate birthDate;
 
+    public User() {
+    }
+
     public User(int id, String name, LocalDate birthDate) {
-        super();
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
