@@ -1,8 +1,8 @@
 package com.nichmihai.restapi.restful_web_services.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -33,9 +33,7 @@ public class UserResource {
     }
 
     @PostMapping("/users")
-
-
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User savedUser = service.save(user);
 
         URI lcoation = ServletUriComponentsBuilder.fromCurrentRequest()

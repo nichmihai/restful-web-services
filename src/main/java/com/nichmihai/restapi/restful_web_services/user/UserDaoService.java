@@ -40,7 +40,7 @@ public class UserDaoService {
 
     public void removerUser(int id) {
         Predicate<? super User> predicate = user -> user.getId() == id;
-        User user = users.stream().filter(predicate).findFirst().get();
-        users.remove(user);
+        users.removeIf(predicate);
+        User user = users.stream().filter(predicate).findFirst().orElse(null);
     }
 }

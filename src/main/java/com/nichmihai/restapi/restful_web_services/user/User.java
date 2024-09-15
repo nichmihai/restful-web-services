@@ -1,11 +1,20 @@
 package com.nichmihai.restapi.restful_web_services.user;
 
+
+
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class User {
     private int id;
+
+    @Size(min=2, message = "Name should have atleast 2 characters")
     private String name;
+
+    @Past(message = "Birthdate must be in the past")
     private LocalDate birthDate;
 
     public User() {
