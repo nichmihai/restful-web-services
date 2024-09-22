@@ -1,20 +1,20 @@
 package com.nichmihai.restapi.restful_web_services.user;
 
-
-
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class User {
     private int id;
-
     @Size(min=2, message = "Name should have atleast 2 characters")
+    @JsonProperty("user_name")
     private String name;
 
-    @Past(message = "Birthdate must be in the past")
+
+    @Past(message = "Birthdate can't be present ot future")
+    @JsonProperty("birth_date")
     private LocalDate birthDate;
 
     public User() {

@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
@@ -28,6 +29,7 @@ public class UserResource {
         User user = service.findOne(id);
 
         if (user == null) throw new UserNotFoundException("No user with id: " + id);
+
 
         return user;
     }

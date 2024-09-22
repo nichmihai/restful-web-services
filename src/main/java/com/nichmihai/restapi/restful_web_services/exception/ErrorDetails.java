@@ -1,7 +1,6 @@
 package com.nichmihai.restapi.restful_web_services.exception;
 
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
