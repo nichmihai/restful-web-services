@@ -9,6 +9,7 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
@@ -33,12 +34,14 @@ public class UserResource {
 
         if (user == null) throw new UserNotFoundException("No user with id: " + id);
 
+
         EntityModel<User> entityModel = EntityModel.of(user);
 
         WebMvcLinkBuilder link = linkTo(methodOn(this.getClass()).retrieveAllUsers());
         entityModel.add(link.withRel("all-users"));
 
         return entityModel;
+
     }
 
     @PostMapping("/users")
